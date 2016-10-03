@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ProductListComponent } from './products/product-list.component';
 
 @Component({
   selector: 'app-root',
@@ -7,5 +8,5 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title: string = 'my 2 app works!';
+  pageTitle: string = 'Acme Product Managment';
 }
