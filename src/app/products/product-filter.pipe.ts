@@ -11,10 +11,10 @@ import { IProduct } from './product';
 @Pipe({ name: 'productFilter' })
 export class ProductFilterPipe implements PipeTransform {
 
-  transform(value: IProduct[], args: string[]): IProduct[] {
-    // let filter: string = args[0] ? args[0].toLocaleLowerCase() : null;
-    let filter: string = args.toString().toLocaleLowerCase();
-    return filter ? value.filter((product: IProduct) =>
-      product.productName.toLocaleLowerCase().indexOf(filter) != -1) : value;
+  transform(value: IProduct[], filter: string): IProduct[] {
+    let filterValue: string = filter.toLocaleLowerCase();
+    return filterValue ? value.filter((product: IProduct) =>
+      product.productName.toLocaleLowerCase().indexOf(filterValue) != -1) : value;
   }
+
 }
