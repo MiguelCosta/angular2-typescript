@@ -10,7 +10,7 @@ import { ProductService } from './product.service';
 
 export class ProductListComponent implements OnInit {
 
-  constructor(private _productService: ProductService){
+  constructor(private _productService: ProductService) {
   }
 
   pageTitle: string = 'Product List';
@@ -27,8 +27,13 @@ export class ProductListComponent implements OnInit {
   }
 
   // método que corre quando o componente é iniciado
-  ngOnInit() : void {
-    this.products = this._productService.getProducts();
+  ngOnInit(): void {
+    this._productService.getProducts()
+      .subscribe(
+        produtcs => this.products = produtcs,
+        error => this.textLog = <any>error
+      );
+    console.log("init");
   }
 
   onRatingClicked(message: string, productName: string): void {
