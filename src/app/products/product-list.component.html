@@ -1,7 +1,5 @@
-<div class="card card-block">
-  <h3 class="card-title">{{pageTitle}}</h3>
-  <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-</div>
+<h3>{{pageTitle}}</h3>
+<p>With supporting text below as a natural lead-in to additional content.</p>
 
 <div class="row">
   <div class="col-md-2">Filter by:</div>
@@ -10,10 +8,8 @@
   </div>
 </div>
 
-<div>
-  <div>
-    <h3>Filtered by: {{ listFilter }}</h3>
-  </div>
+<div *ngIf='listFilter'>
+  <h3>Filtered by: {{ listFilter }}</h3>
 </div>
 
 <div class="table-responsive">
@@ -42,8 +38,15 @@
         <td>{{ product.productCode | lowercase }}</td>
         <td>{{ product.releaseDate }}</td>
         <td>{{ product.price | currency:'EUR':true:'1.2-2' | lowercase }}</td>
-        <td>{{ product.starRating }}</td>
+        <!--<td>{{ product.starRating }}</td>-->
+        <td>
+          <ai-star [rating]='product.starRating' (ratingClicked)='onRatingClicked($event, product.productName)'></ai-star>
+        </td>
       </tr>
     </tbody>
   </table>
+</div>
+
+<div *ngIf='textLog' class="alert alert-info alert-dismissible fade in">
+  {{ textLog }}
 </div>
