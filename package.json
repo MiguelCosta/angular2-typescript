@@ -2,6 +2,11 @@
   "name": "angular2-typescript",
   "version": "1.0.0",
   "license": "MIT",
+  "author": {
+    "name": "Miguel Costa",
+    "email": "miguelpintodacosta@gmail.com",
+    "url": "http://github.com/MiguelCosta"
+  },
   "angular-cli": {},
   "scripts": {
     "start": "ng serve",
